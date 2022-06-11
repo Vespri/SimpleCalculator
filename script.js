@@ -53,7 +53,7 @@ const percentage = document.querySelector('.percentage')
 
 const percentage_result = () => {
     result_percentage = currentNumber / 100
-    currentNumber = result_percentage
+    currentNumber = result_percentage.toString()
     return currentNumber
 }
 
