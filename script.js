@@ -3,6 +3,7 @@ const calculatorScreen = document.querySelector('.calculator-screen')
 let prevNumber = ''
 let calculationOperator = ''
 let currentNumber = '0'
+let result_percentage = ''
 
 const updateScreen = (number) => {
     calculatorScreen.value = number
@@ -48,12 +49,25 @@ equalSign.addEventListener('click', () => {
     updateScreen(currentNumber)
 })
 
+const percentage = document.querySelector('.percentage')
+
+const percentage_result = () => {
+    result_percentage = currentNumber / 100
+    currentNumber = result_percentage
+    return currentNumber
+}
+
+percentage.addEventListener('click', () => {
+    percentage_result()
+    updateScreen(currentNumber)
+})
+
 const calculate = () => {
     let result = ''
     switch (calculationOperator) {
         case '+':
             result = parseFloat(prevNumber) + parseFloat(currentNumber)
-            break;
+            break
         case '-':
             result = prevNumber - currentNumber
             break
@@ -62,11 +76,11 @@ const calculate = () => {
             break
         case '/':
             result = prevNumber / currentNumber
-            break    
+            break
         default:
             return
     }
-    currentNumber = result
+    currentNumber = result.toString()
     calculationOperator = ''
 }
 
@@ -81,6 +95,24 @@ const clearAll = () => {
     prevNumber = ''
     calculationOperator = ''
     currentNumber = '0'
+}
+
+const deleteBtn = document.querySelector('.one-clear')
+
+deleteBtn.addEventListener('click', () => {
+    if (currentNumber.length > 1){
+        clearOne()
+        updateScreen(currentNumber)
+    } else {
+        currentNumber = '0'
+        updateScreen(currentNumber)
+    }
+})
+
+const clearOne = () => {
+    currentNumber = currentNumber.toString()
+    currentNumber = currentNumber.substr(0, currentNumber.length-1)
+    return currentNumber
 }
 
 const decimal = document.querySelector('.decimal')
