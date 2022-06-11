@@ -3,7 +3,4 @@
 
 # Codepen
 
-You can also check this Calculator on my Codepen
-```
-https://codepen.io/JustTyper/pen/eYVQKrg
-```
+You can also check this Calculator on [my Codepen](https://codepen.io/JustTyper/pen/eYVQKrg)
